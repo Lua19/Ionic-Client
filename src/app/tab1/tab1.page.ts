@@ -23,8 +23,8 @@ export class Tab1Page implements OnInit {
   }
   
   searchQuery : string = '';
-  keyup(query: string){
-    console.log(query);
+  searchStudent(){
+    console.log(this.searchQuery);
   }
 
 }
