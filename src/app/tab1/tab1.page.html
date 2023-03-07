@@ -12,7 +12,20 @@
       <ion-title size="large">List tab</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-searchbar placeholder="Custom Placeholder"></ion-searchbar>
-  
-  <app-explore-container name="Lista bonita"></app-explore-container>
+  <ion-searchbar placeholder="Search user" [(ngModel)]="searchQuery"  onkeyup="search(searchQuery)">
+  </ion-searchbar>
+  <ion-grid>
+    <ion-row >
+      <ion-col class="table-header">Name</ion-col>
+      <ion-col class="table-header">Username</ion-col>
+      <ion-col class="table-header">Email</ion-col>
+      <ion-col class="table-header">Password</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let user of users;">
+      <ion-col>{{user.Name}}</ion-col>
+      <ion-col>{{user.Username}}</ion-col>
+      <ion-col>{{user.Email}}</ion-col>
+      <ion-col>{{user.Password}}</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
