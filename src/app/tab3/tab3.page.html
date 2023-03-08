@@ -1,10 +1,10 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Tab 3
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -14,4 +14,50 @@
   </ion-header>
 
   <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-split-pane when="xs" contentId="main">
+    <ion-menu contentId="main">
+      <ion-header>
+        <ion-toolbar color="tertiary">
+          <ion-title>Login</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        
+        <ion-item fill="solid">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input class="input" [(ngModel)]="LoginEmail" type="email"></ion-input>
+          <ion-note slot="error">Invalid email</ion-note>
+        </ion-item>    
+        <ion-item fill="solid">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input class="input"[(ngModel)]="LoginPassword" type="password"></ion-input>
+        </ion-item>
+        <ion-button (click)="LoginSubmit()" color="primary">Sign in</ion-button>
+        </ion-content>
+    </ion-menu>
+  
+    <div class="ion-page" id="main">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Register</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item fill="solid">
+          <ion-label position="floating">Name</ion-label>
+          <ion-input class="input" [(ngModel)]="RegisterName" type="text"></ion-input>
+        </ion-item>    
+        <ion-item fill="solid">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input class="input" [(ngModel)]="RegisterEmail" type="email"></ion-input>
+          <ion-note slot="error">Invalid email</ion-note>
+        </ion-item>
+        <ion-item fill="solid">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input class="input" [(ngModel)]="RegisterPassword" type="password"></ion-input>
+        </ion-item>
+        <ion-button (click)="RegisterSubmit()" color="primary">Register</ion-button>
+     </ion-content>
+    </div>
+  </ion-split-pane>
 </ion-content>
