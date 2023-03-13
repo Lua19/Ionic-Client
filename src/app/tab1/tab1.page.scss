@@ -4,3 +4,18 @@
     color: #fff;
     text-align: center;
   }
+
+  .card{
+    max-width: 20%;
+    padding: 20px;
+    margin: 25px;
+  }
+
+  .color-red{
+    color: var(--ion-color-red);
+  }
+
+  .title{
+    font-weight: 600;
+    font-size: large;
+  }
