@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from '../services/movies.service';
 
 @Component({
   selector: 'app-tab1',
@@ -16,10 +17,14 @@ export class Tab1Page implements OnInit {
     },
   ];
 
-  constructor() {}
+  movies:[]|any = [];
+  constructor(private movieService : MoviesService) {}
 
   ngOnInit(): void {
-    console.log(this.users);
+    this.movieService.getMovies().subscribe( (res:any) => {
+      this.movies = res["movies"];
+      console.log(this.movies)
+    });
   }
   
   searchQuery : string = '';
