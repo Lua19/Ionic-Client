@@ -23,6 +23,7 @@ export class Tab1Page implements OnInit {
   ngOnInit(): void {
     this.movieService.getMovies().subscribe( (res:any) => {
       this.movies = res["movies"];
+      this.movieService.movies = this.movies;
       console.log(this.movies)
     });
   }
