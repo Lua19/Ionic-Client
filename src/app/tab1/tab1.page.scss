@@ -8,9 +8,13 @@
   .card{
     min-width: 250px;
     max-width: 20%;
-    padding: 20px;
-    margin: 25px;
+    padding: 10px;
+    margin: 15px;
     
+  }
+  .card-img{
+    max-width: 200px;
+    object-fit: scale-down;
   }
 
   .color-red{
@@ -24,4 +28,7 @@
 
   .flex{
     display: flex;
+  }
+  .center{
+    justify-content: center;
   }
