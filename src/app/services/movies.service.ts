@@ -8,10 +8,10 @@ export class MoviesService {
 
   movies= [];
 
-  APIUrl = "http://10.100.0.208:8080/marvel"
+  APIUrl = "http://localhost:8080"
   constructor(private http:HttpClient) { }
 
   getMovies (){
-    return this.http.get(this.APIUrl);
+    return this.http.get(this.APIUrl+"/marvel");
   }
 }
