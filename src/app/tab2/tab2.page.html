@@ -13,7 +13,35 @@
     </ion-toolbar>
   </ion-header>
   <div class="center">
-  <ion-card class="card login">
+    <ion-card class="card">
+      <div class="flex center">
+        <!-- <img class="card-img" alt="Silhouette of mountains" src="{{formMovie | ImagePipe}}" /> -->
+      </div>
+      <ion-card-header>
+        <ion-card-title><ion-input placeholder="Movie Name" value="{{formMovie.name}}"></ion-input></ion-card-title>
+        <ion-card-subtitle><ion-input placeholder="Year of release" value="{{formMovie.releaseYear}}"></ion-input></ion-card-subtitle>
+      </ion-card-header>
+      <div class="flex">
+
+        <ion-card-content>
+          
+          <ion-input placeholder="Rating" value="{{formMovie.rating}}"></ion-input>⭐
+        </ion-card-content>
+      </div>
+      <ion-card-content>
+        <ion-input placeholder="Director" value="{{formMovie.director}}"></ion-input>
+      </ion-card-content>
+      <ion-card-content>
+        <ion-input placeholder="Description" value="{{formMovie.description}}"></ion-input>
+      </ion-card-content>
+      <div class="flex">
+      <ion-tab-button (click)="sendMovie(formMovie)" >
+        <ion-icon aria-hidden="true" name="checkmark-outline"></ion-icon>
+        <ion-label>Edit</ion-label>
+      </ion-tab-button>
+    </div>
+    </ion-card>
+  <!-- <ion-card class="card login">
     <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
     <ion-input placeholder="URL of the image" id="url"></ion-input>
     <ion-card-header>
@@ -34,7 +62,7 @@
     </ion-tab-button>
   </ion-card>
 
-  
+   -->
 
 
   </div>

@@ -4,10 +4,25 @@
     align-items: center;
     margin-top: 30px;
 }
+.card{
+    min-width: 250px;
+    max-width: 25%;
+    padding: 10px;
+    margin: 15px;
+    
+  }
 .title{
     color: var(--ion-color-red);
 }
 .login{
     width: 300px;
     height: 350px;
+}
+.card-img{
+    max-width: 250px;
+    object-fit: scale-down;
+  }
+
+.flex{
+    display: flex;
 }

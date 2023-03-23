@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MoviesService } from '../services/movies.service';
 
 @Component({
@@ -18,7 +19,9 @@ export class Tab1Page implements OnInit {
   ];
 
   movies:[]|any = [];
-  constructor(private movieService : MoviesService) {}
+  constructor(private movieService : MoviesService,
+              private router : Router
+    ) {}
 
   ngOnInit(): void {
     this.movieService.getMovies().subscribe( (res:any) => {
@@ -31,6 +34,11 @@ export class Tab1Page implements OnInit {
   searchQuery : string = '';
   searchStudent(){
     console.log(this.searchQuery);
+  }
+
+  updateMovie(movie: any){
+    this.movieService.movieToSend = movie;
+    this.router.navigate(["tabs/tab2/"])
   }
 
 }

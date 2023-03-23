@@ -33,7 +33,7 @@
         {{movie.description}}
       </ion-card-content>
       <div class="flex">
-      <ion-tab-button>
+      <ion-tab-button (click)="updateMovie(movie)">
         <ion-icon aria-hidden="true" name="pencil"></ion-icon>
         <ion-label>Edit</ion-label>
       </ion-tab-button>
