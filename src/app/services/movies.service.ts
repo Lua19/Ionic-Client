@@ -23,5 +23,9 @@ export class MoviesService {
   updateMovie(movie:any){
     return this.http.put(this.APIUrl+"/marvel/"+movie.id,movie)
   }
+  deleteMovie(movieId:any){
+    return this.http.delete(this.APIUrl+"/marvel/"+movieId);
+  }
+  
 
 }

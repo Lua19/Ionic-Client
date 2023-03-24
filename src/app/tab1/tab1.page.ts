@@ -41,4 +41,12 @@ export class Tab1Page implements OnInit {
     this.router.navigate(["tabs/tab2/"])
   }
 
+  deleteMovie(movieId: any){
+    this.movieService.deleteMovie(movieId).subscribe( (res) => {
+      console.log(res);
+    }
+
+    )
+  }
+
 }
