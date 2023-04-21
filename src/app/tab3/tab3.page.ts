@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Tab3Page implements OnInit{
 
-  constructor() {}
+  constructor(private users: UsersService) {}
 
 
   ngOnInit(): void {
@@ -30,6 +31,12 @@ export class Tab3Page implements OnInit{
     }
 
     console.log(Login);
+
+    this.users.login(Login).subscribe(
+      (res) => {
+        console.log(res)
+      }
+    )
   }
   RegisterSubmit(){
     
@@ -39,5 +46,11 @@ export class Tab3Page implements OnInit{
       Password : this.RegisterPassword
     }
     console.log(Register)
+
+    this.users.register(Register).subscribe(
+      (res) => {
+        console.log(res)
+      }
+    )
   }
 }

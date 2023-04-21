@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,15 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
+  APIUrl = "http://localhost:8080"
+
+  login(body: any){
+    return this.http.post(this.APIUrl+"/users/login", body)
+  }
+
+  register(body: any){
+    return this.http.post(this.APIUrl+"/users/register", body)
+  }
 }
