@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title class="title">
+    <ion-title *ngIf="formMovie.id != null" class="color-red title">
+      Edit movie
+    </ion-title>
+    <ion-title *ngIf="formMovie.id == null" class="color-red title">
       Add a movie
     </ion-title>
   </ion-toolbar>
@@ -9,61 +12,55 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large" >Add a movie</ion-title>
+      <ion-title size="large">Add a movie</ion-title>
     </ion-toolbar>
   </ion-header>
   <div class="center">
     <ion-card class="card">
       <div class="flex center">
-        <!-- <img class="card-img" alt="Silhouette of mountains" src="{{formMovie | ImagePipe}}" /> -->
+        <img class="card-img" alt="Silhouette of mountains"
+          [src]="formMovie.url != null? formMovie.url : alternateImage" />
       </div>
       <ion-card-header>
-        <ion-card-title><ion-input placeholder="Movie Name" value="{{formMovie.name}}"></ion-input></ion-card-title>
-        <ion-card-subtitle><ion-input placeholder="Year of release" value="{{formMovie.releaseYear}}"></ion-input></ion-card-subtitle>
+        <ion-card-title>
+          <ion-input [(ngModel)]="Name" placeholder="Movie Name" value="{{formMovie.name}}">
+          </ion-input>
+        </ion-card-title>
       </ion-card-header>
-      <div class="flex">
+
+      <ion-card-content>
+        <h3>Year of release</h3>
+        <ion-input [(ngModel)]="Year" placeholder="Quentin Tarantulino" value="{{formMovie.releaseYear}}"></ion-input>
+      </ion-card-content>
 
         <ion-card-content>
-          
-          <ion-input placeholder="Rating" value="{{formMovie.rating}}"></ion-input>⭐
+          <h3>Rating</h3>
+          <div class="flex">
+            <ion-input [(ngModel)]="Rating" placeholder="4.5" value="{{formMovie.rating}}"></ion-input>
+            <div>⭐</div>
+          </div>
         </ion-card-content>
+
+      <ion-card-content>
+        <h3>Director</h3>
+        <ion-input [(ngModel)]="Director" placeholder="Quentin Tarantulino" value="{{formMovie.director}}"></ion-input>
+      </ion-card-content>
+      <ion-card-content>
+        <h3>Description</h3>
+        <ion-input [(ngModel)]="Description" placeholder="A former slave joins forces with a German bounty hunter who frees him and helps hunt down the South's most wanted criminals, all in the hope of finding his long-lost wife." value="{{formMovie.description}}"></ion-input>
+      </ion-card-content>
+      <ion-card-content>
+        <h3>Poster URl</h3>
+        <ion-input [(ngModel)]="URL" placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/800px-Marvel_Logo.svg.png"  value="{{formMovie.url}}"></ion-input>
+      </ion-card-content>
+      <div class="flex middle">
+        <ion-tab-button (click)="sendMovie()">
+          <ion-icon aria-hidden="true" name="checkmark-outline"></ion-icon>
+          <ion-label *ngIf="formMovie.id != null" >Edit</ion-label>
+          <ion-label *ngIf="formMovie.id == null" >Submit</ion-label>
+        </ion-tab-button>
       </div>
-      <ion-card-content>
-        <ion-input placeholder="Director" value="{{formMovie.director}}"></ion-input>
-      </ion-card-content>
-      <ion-card-content>
-        <ion-input placeholder="Description" value="{{formMovie.description}}"></ion-input>
-      </ion-card-content>
-      <div class="flex">
-      <ion-tab-button (click)="sendMovie(formMovie)" >
-        <ion-icon aria-hidden="true" name="checkmark-outline"></ion-icon>
-        <ion-label>Edit</ion-label>
-      </ion-tab-button>
-    </div>
     </ion-card>
-  <!-- <ion-card class="card login">
-    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-    <ion-input placeholder="URL of the image" id="url"></ion-input>
-    <ion-card-header>
-      <ion-card-title>
-        <ion-input placeholder="Movie name" id="name"></ion-input>
-      </ion-card-title>
-      <ion-card-subtitle>
-        <ion-input placeholder="Release Year" id="releaseYear"></ion-input>
-      </ion-card-subtitle>
-    </ion-card-header>
-  
-    <ion-card-content>
-      <ion-input placeholder="Description" id="description"></ion-input>
-    </ion-card-content>
-    <ion-tab-button>
-      <ion-icon aria-hidden="true" name="checkmark-outline"></ion-icon>
-      <ion-label>Save</ion-label>
-    </ion-tab-button>
-  </ion-card>
-
-   -->
-
 
   </div>
 

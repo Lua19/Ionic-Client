@@ -8,7 +8,7 @@ export class MoviesService {
 
   movies= [];
 
-  movieToSend = {};
+  movieToSend : any = {};
 
   APIUrl = "http://localhost:8080"
   constructor(private http:HttpClient) { }
@@ -16,15 +16,15 @@ export class MoviesService {
   getMovies (){
     return this.http.get(this.APIUrl+"/marvel");
   }
-  createMovie(movie:any){
-    return this.http.post(this.APIUrl+"/marvel",movie)
+  async createMovie(movie:any){
+    return await this.http.post(this.APIUrl+"/marvel",movie)
   }
 
-  updateMovie(movie:any){
-    return this.http.put(this.APIUrl+"/marvel/"+movie.id,movie)
+  async updateMovie(movie:any){
+    return await this.http.put(this.APIUrl+"/marvel/"+movie.id,movie)
   }
-  deleteMovie(movieId:any){
-    return this.http.delete(this.APIUrl+"/marvel/"+movieId);
+  async deleteMovie(movieId:any){
+    return await this.http.delete(this.APIUrl+"/marvel/"+movieId);
   }
   
 

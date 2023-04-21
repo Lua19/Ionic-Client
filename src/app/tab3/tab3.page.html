@@ -17,8 +17,8 @@
   <ion-split-pane when="xs" contentId="main">
     <ion-menu contentId="main">
       <ion-header>
-        <ion-toolbar color="tertiary">
-          <ion-title>Login</ion-title>
+        <ion-toolbar>
+          <ion-title class="color-red title">Login</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding">
@@ -32,14 +32,19 @@
           <ion-label position="floating">Password</ion-label>
           <ion-input class="input"[(ngModel)]="LoginPassword" type="password"></ion-input>
         </ion-item>
-        <ion-button (click)="LoginSubmit()" color="primary">Sign in</ion-button>
+        <div class="button-container">
+          <ion-tab-button (click)="LoginSubmit()">
+            <ion-icon aria-hidden="true" name="checkmark-outline"></ion-icon>
+            <ion-label>Sign in</ion-label>
+          </ion-tab-button>
+        </div>
         </ion-content>
     </ion-menu>
   
     <div class="ion-page" id="main">
       <ion-header>
         <ion-toolbar>
-          <ion-title>Register</ion-title>
+          <ion-title class="color-red title">Register</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding">
@@ -56,7 +61,12 @@
           <ion-label position="floating">Password</ion-label>
           <ion-input class="input" [(ngModel)]="RegisterPassword" type="password"></ion-input>
         </ion-item>
-        <ion-button (click)="RegisterSubmit()" color="primary">Register</ion-button>
+        <div class="button-container">
+          <ion-tab-button (click)="RegisterSubmit()">
+            <ion-icon aria-hidden="true" name="checkmark-outline"></ion-icon>
+            <ion-label>Register</ion-label>
+          </ion-tab-button>
+        </div>
      </ion-content>
     </div>
   </ion-split-pane>

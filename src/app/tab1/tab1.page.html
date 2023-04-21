@@ -17,7 +17,7 @@
   <div class="flex">
     <ion-card class="card" *ngFor="let movie of movies">
       <div class="flex center">
-        <img class="card-img" alt="Silhouette of mountains" src={{movie.url}} />
+        <img class="card-img" alt="Silhouette of mountains" [src]="movie.url != null? movie.url : alternateImage" />
       </div>
       <ion-card-header>
         <ion-card-title>{{movie.name}}</ion-card-title>

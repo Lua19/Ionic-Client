@@ -9,6 +9,9 @@ import { MoviesService } from '../services/movies.service';
 })
 export class Tab1Page implements OnInit {
 
+  alternateImage: string = 'https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2020/04/hipertextual-coronavirus-retrasa-fase-4-universo-marvel-asi-quedan-nuevas-fechas-estreno-2020920160.jpg?fit=2560%2C1440&quality=50&strip=all&ssl=1';
+
+
   users :[]| any = [
     {
       "Name":"Mikelol",
@@ -38,12 +41,17 @@ export class Tab1Page implements OnInit {
 
   updateMovie(movie: any){
     this.movieService.movieToSend = movie;
-    this.router.navigate(["tabs/tab2/"])
+    this.router.navigate(["tab2/"])
   }
 
-  deleteMovie(movieId: any){
-    this.movieService.deleteMovie(movieId).subscribe( (res) => {
-      console.log(res);
+  async deleteMovie(movieId: any){
+    (await this.movieService.deleteMovie(movieId)).subscribe( (res : any) => {
+      if(res.response == "Movie deleted"){
+        alert("Movie deleted successfully");
+        location.reload();
+      } else {
+        alert("There was an issue deleting this movie")
+      }
     }
 
     )
